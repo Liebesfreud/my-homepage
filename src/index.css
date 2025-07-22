@@ -1,0 +1,163 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fluent Design inspired personal portal design system */
+
+@layer base {
+  :root {
+    /* Fluent Design Colors */
+    --background: 0 0% 99%;
+    --foreground: 216 12% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 216 12% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 216 12% 8%;
+
+    /* Fluent Blue Primary */
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 210 100% 45%;
+
+    /* Acrylic/Glass Effects */
+    --secondary: 210 20% 95%;
+    --secondary-foreground: 216 12% 8%;
+
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 210 100% 50%;
+
+    /* Fluent Design specific tokens */
+    --acrylic-background: 0 0% 100% / 0.7;
+    --acrylic-border: 210 20% 90%;
+    --reveal-glow: 210 100% 50% / 0.1;
+    --depth-shadow: 0 8px 32px 0 hsl(216 12% 8% / 0.1);
+    --fluent-radius: 8px;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 0 0% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 0 0% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 210 100% 55%;
+
+    --secondary: 217 33% 18%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 210 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 18%;
+    --input: 217 33% 18%;
+    --ring: 210 100% 50%;
+
+    /* Dark mode Fluent tokens */
+    --acrylic-background: 0 0% 0% / 0.5;
+    --acrylic-border: 217 33% 25%;
+    --reveal-glow: 210 100% 50% / 0.15;
+    --depth-shadow: 0 8px 32px 0 hsl(0 0% 0% / 0.3);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+}
+
+@layer components {
+  /* Fluent Design Components */
+  .acrylic-card {
+    @apply backdrop-blur-lg border border-[hsl(var(--acrylic-border))];
+    background: hsl(var(--acrylic-background));
+    border-radius: var(--fluent-radius);
+    box-shadow: var(--depth-shadow);
+  }
+
+  .reveal-effect {
+    @apply relative overflow-hidden transition-all duration-200;
+  }
+
+  .reveal-effect::before {
+    content: '';
+    @apply absolute inset-0 opacity-0 transition-opacity duration-200 pointer-events-none;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), hsl(var(--reveal-glow)) 0%, transparent 50%);
+  }
+
+  .reveal-effect:hover::before {
+    @apply opacity-100;
+  }
+
+  .fluent-button {
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-200;
+    @apply bg-primary text-primary-foreground;
+    @apply hover:scale-105 active:scale-95;
+    box-shadow: 0 4px 16px 0 hsl(var(--primary) / 0.2);
+  }
+
+  .fluent-button:hover {
+    background: hsl(var(--primary-hover));
+    box-shadow: 0 6px 20px 0 hsl(var(--primary) / 0.3);
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, 
+      hsl(var(--primary)) 0%, 
+      hsl(var(--accent)) 50%, 
+      hsl(var(--primary)) 100%);
+  }
+}
