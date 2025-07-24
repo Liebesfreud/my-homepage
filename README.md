@@ -191,13 +191,6 @@ const defaultServices = [
 4. 推送分支: `git push origin feature/AmazingFeature`
 5. 创建 Pull Request
 
-## 📞 联系方式
-
-如有问题或建议，请通过以下方式联系：
-
-- 📧 邮箱: example@example.com
-- 🐙 GitHub: [@example](https://github.com/example)
-
 ---
 
 ⭐ 如果这个项目对你有帮助，请给个 Star 支持一下！
