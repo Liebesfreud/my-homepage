@@ -1,35 +1,206 @@
-## 如何编辑此代码？
-如果你想在本地使用自己的 IDE 进行开发，可以克隆此仓库并推送更改。推送的更改也会同步到 Lovable。
-唯一的要求是已安装 Node.js 和 npm —— [使用 nvm 安装](https://github.com/nvm-sh/nvm#installing-and-updating)
-操作步骤如下：
+# 🌟 个人主页项目
 
-```sh
-# 步骤 1：使用项目的 Git URL 克隆仓库。
+一个基于现代 Web 技术栈构建的个人主页项目，采用 Microsoft Fluent Design 设计语言，提供优雅的用户体验和丰富的视觉效果。
+
+## ✨ 特性
+
+- 🎨 **现代设计系统** - 基于 Microsoft Fluent Design 设计语言
+- 🌈 **极光背景效果** - 动态极光和点阵背景，支持明暗主题切换
+- 📱 **响应式设计** - 完美适配桌面端、平板和移动设备
+- ⚡ **高性能构建** - 基于 Vite 的快速开发和构建体验
+- 🎭 **丰富组件库** - 集成 shadcn/ui 高质量 UI 组件
+- 🔧 **TypeScript 支持** - 完整的类型安全保障
+- 🎯 **模块化架构** - 组件化开发，易于维护和扩展
+
+## 🛠️ 技术栈
+
+### 核心框架
+- **React 18** - 现代 React 框架，支持并发特性
+- **TypeScript** - 提供完整的类型安全
+- **Vite** - 极速的前端构建工具
+
+### UI 组件与样式
+- **shadcn/ui** - 基于 Radix UI 的高质量组件库
+- **Tailwind CSS** - 原子化 CSS 框架
+- **Lucide React** - 优雅的图标库
+- **React Icons** - 丰富的图标集合
+
+### 状态管理与路由
+- **React Router DOM** - 客户端路由管理
+- **TanStack Query** - 强大的数据获取和缓存
+- **React Hook Form** - 高性能表单处理
+
+### 主题与设计
+- **Next Themes** - 主题切换支持
+- **Class Variance Authority** - 样式变体管理
+- **Tailwind Animate** - CSS 动画库
+
+### 开发工具
+- **ESLint** - 代码质量检查
+- **TypeScript ESLint** - TypeScript 专用 ESLint 规则
+- **PostCSS** - CSS 后处理器
+- **Autoprefixer** - CSS 浏览器前缀自动添加
+
+## 🚀 快速开始
+
+### 环境要求
+
+- Node.js 16+ 
+- npm 或 yarn 或 pnpm
+
+### 安装与运行
+
+```bash
+# 克隆项目
 git clone <YOUR_GIT_URL>
-
-# 步骤 2：进入项目目录。
 cd <YOUR_PROJECT_NAME>
 
-# 步骤 3：安装所需依赖。
-npm i
+# 安装依赖
+npm install
 
-# 步骤 4：启动开发服务器，支持自动热重载和即时预览。
+# 启动开发服务器
 npm run dev
+
+# 构建生产版本
+npm run build
+
+# 预览生产构建
+npm run preview
+
+# 代码检查
+npm run lint
 ```
 
-**直接在 GitHub 上编辑文件**
 
-- 进入你想编辑的文件。
-- 点击文件右上角的“编辑”按钮（铅笔图标）。
-- 修改后提交更改。
+## 📂 项目结构
 
-**使用 GitHub Codespaces**
+```
+src/
+├── components/          # 可复用组件
+│   ├── ui/             # 基础 UI 组件
+│   ├── AuroraBackground.tsx    # 极光背景组件
+│   ├── HeroSection.tsx         # 首页英雄区域
+│   ├── Navigation.tsx          # 导航栏组件
+│   ├── ScrollIndicator.tsx     # 滚动指示器
+│   ├── ServicesGrid.tsx        # 服务网格组件
+│   └── ThemeProvider.tsx       # 主题提供者
+├── hooks/              # 自定义 React Hooks
+├── lib/                # 工具函数和配置
+├── pages/              # 页面组件
+├── App.tsx             # 应用根组件
+├── main.tsx            # 应用入口
+└── index.css           # 全局样式
+```
 
-- 进入仓库主页。
-- 点击右上角绿色的“Code”按钮。
-- 选择“Codespaces”标签。
-- 点击“New codespace”以启动新的 Codespace 环境。
-- 在 Codespace 中直接编辑文件，完成后提交并推送更改。
+## 🎨 设计系统
+
+### 颜色主题
+
+项目采用 Microsoft Fluent Design 配色方案：
+
+- **主色调**: Fluent Blue (`#0078d4`)
+- **强调色**: 动态渐变色彩
+- **背景色**: 自适应明暗主题
+- **毛玻璃效果**: Acrylic 材质
+
+### 组件设计
+
+- **Acrylic Cards**: 毛玻璃卡片效果
+- **Reveal Effects**: 鼠标悬停发光效果  
+- **Fluent Buttons**: 流畅的按钮交互
+- **Aurora Background**: 动态极光背景
+
+## 🔧 自定义配置
+
+### 个人信息配置
+
+在 `src/pages/Index.tsx` 中修改个人信息：
+
+```typescript
+const profileData = {
+  name: "你的姓名",
+  title: "你的职位",
+  description: "个人描述",
+  avatar: "头像URL",
+  socialLinks: {
+    github: "GitHub链接",
+    linkedin: "LinkedIn链接", 
+    email: "邮箱地址"
+  }
+};
+```
+
+### 服务/项目配置
+
+在 `src/components/ServicesGrid.tsx` 中修改项目列表：
+
+```typescript
+const defaultServices = [
+  {
+    id: '1',
+    title: '项目标题',
+    description: '项目描述',
+    url: '项目链接',
+    icon: '图标名称',
+    category: '分类'
+  }
+  // ... 更多项目
+];
+```
+
+### 主题定制
+
+在 `src/index.css` 中自定义 CSS 变量：
+
+```css
+:root {
+  --primary: 210 100% 50%;
+  --background: 0 0% 99%;
+  /* 更多主题变量 */
+}
+```
+
+## 📱 响应式设计
+
+项目采用移动优先的响应式设计：
+
+- **移动端**: < 768px
+- **平板端**: 768px - 1024px  
+- **桌面端**: > 1024px
+
+所有组件都经过精心设计，确保在不同设备上都有最佳体验。
+
+## 🌐 浏览器兼容性
+
+- Chrome 88+
+- Firefox 78+
+- Safari 14+
+- Edge 88+
+
+## 📄 许可证
+
+本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件
+
+## 🤝 贡献指南
+
+欢迎提交 Issue 和 Pull Request！
+
+1. Fork 本项目
+2. 创建特性分支: `git checkout -b feature/AmazingFeature`
+3. 提交更改: `git commit -m 'Add some AmazingFeature'`
+4. 推送分支: `git push origin feature/AmazingFeature`
+5. 创建 Pull Request
+
+## 📞 联系方式
+
+如有问题或建议，请通过以下方式联系：
+
+- 📧 邮箱: example@example.com
+- 🐙 GitHub: [@example](https://github.com/example)
+
+---
+
+⭐ 如果这个项目对你有帮助，请给个 Star 支持一下！
 
 ## 本项目使用了哪些技术？
 

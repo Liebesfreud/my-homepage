@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Globe, Image, BookOpen, Code, Settings } from "lucide-react"
+import { Icons } from "@/lib/icons"
 
 interface Service {
   id: string
@@ -19,61 +19,61 @@ interface ServicesGridProps {
 const defaultServices: Service[] = [
   {
     id: '1',
-    title: '个人博客',
-    description: '基于Halo的个人博客，分享技术生活点滴。',
-    url: 'https://liebesfreud.me/',
+    title: 'LinkA',
+    description: 'example',
+    url: 'https://example.com/',
     icon: 'BookOpen',
     category: 'content'
   },
   {
     id: '2',
-    title: '摄影图册',
-    description: '使用Exif-Photo-Blog搭建，展示我的摄影作品。',
-    url: 'https://pic.liebesfreud.me/',
+    title: 'LinkB',
+    description: 'example',
+    url: 'https://example.com/',
     icon: 'Image',
     category: 'content'
   },
   {
     id: '3',
-    title: '临时图床',
-    description: '一个简单的图床服务，支持上传和分享图片。',
+    title: 'LinkC',
+    description: 'example',
     url: 'https://cloudflare-imgbed-958.pages.dev/',
     icon: 'Links',
     category: 'code'
   },
   {
     id: '4',
-    title: '短链接服务',
-    description: '基于开源项目Sink',
-    url: 'https://lieb.qzz.io/',
+    title: 'LinkD',
+    description: 'example',
+    url: 'https://example.com/',
     icon: 'Settings',
     category: 'tool'
   },
   {
     id: '5',
-    title: 'MoonTV',
-    description: '开源影视站',
-    url: '/portfolio',
+    title: 'LinkE',
+    description: 'example',
+    url: 'https://example.com/',
     icon: 'ExternalLink',
     category: 'web'
   },
   {
     id: '6',
-    title: '探针服务',
-    description: '监控服务器',
-    url: 'https://komari.liebesfreud.me/',
+    title: 'LinkF',
+    description: 'example',
+    url: 'https://example.com/',
     icon: 'Globe',
     category: 'web'
   }
 ]
 
 const iconMap = {
-  BookOpen,
-  Image,
-  Code,
-  Settings,
-  Globe,
-  ExternalLink
+  BookOpen: Icons.BookOpen,
+  Image: Icons.Image,
+  Code: Icons.Code,
+  Settings: Icons.Settings,
+  Globe: Icons.Globe,
+  ExternalLink: Icons.ExternalLink
 }
 
 export function ServicesGrid({ services = defaultServices, onServiceClick }: ServicesGridProps) {
@@ -97,7 +97,7 @@ export function ServicesGrid({ services = defaultServices, onServiceClick }: Ser
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service) => {
-            const IconComponent = iconMap[service.icon as keyof typeof iconMap] || Globe
+            const IconComponent = iconMap[service.icon as keyof typeof iconMap] || Icons.Globe
             
             return (
               <Card
@@ -126,7 +126,7 @@ export function ServicesGrid({ services = defaultServices, onServiceClick }: Ser
                     className="w-full group-hover:bg-primary/10 group-hover:text-primary transition-all duration-200"
                   >
                     访问
-                    <ExternalLink className="w-4 h-4 ml-2" />
+                    <Icons.ExternalLink className="w-4 h-4 ml-2" />
                   </Button>
                 </CardContent>
               </Card>

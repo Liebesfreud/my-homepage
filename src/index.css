@@ -160,4 +160,147 @@
       hsl(var(--accent)) 50%, 
       hsl(var(--primary)) 100%);
   }
+
+  /* 极光点阵背景效果 */
+  .aurora-background {
+    @apply fixed inset-0 pointer-events-none z-0;
+    overflow: hidden;
+  }
+
+  /* 流水点阵层 */
+  .flowing-dots-layer {
+    @apply absolute inset-0;
+  }
+
+  .flowing-dots-1 {
+    background-image: 
+      radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.05) 4px, transparent 4px);
+    background-size: 60px 60px;
+    /* 移除动画，改为静态 */
+  }
+
+  /* 波浪点阵层 - 增强流动感 */
+  .wave-dots-layer {
+    @apply absolute inset-0;
+  }
+
+  /* 轻微的极光背景 */
+  .aurora-layer-subtle {
+    @apply absolute inset-0 opacity-10;
+    background: linear-gradient(45deg, 
+      transparent 40%, 
+      rgba(59, 130, 246, 0.1) 60%, 
+      transparent 80%);
+    animation: subtle-aurora 30s ease-in-out infinite alternate;
+    filter: blur(60px);
+  }
+
+  .aurora-layer {
+    @apply absolute inset-0 opacity-30;
+    filter: blur(40px);
+  }
+
+  .aurora-layer-1 {
+    background: linear-gradient(45deg, 
+      transparent 30%, 
+      rgba(59, 130, 246, 0.1) 50%, 
+      transparent 70%);
+    animation: aurora-flow-1 25s ease-in-out infinite alternate;
+  }
+
+  .aurora-layer-2 {
+    background: linear-gradient(-45deg, 
+      transparent 20%, 
+      rgba(139, 92, 246, 0.08) 50%, 
+      transparent 80%);
+    animation: aurora-flow-2 30s ease-in-out infinite alternate-reverse;
+  }
+
+  .aurora-layer-3 {
+    background: linear-gradient(135deg, 
+      transparent 40%, 
+      rgba(16, 185, 129, 0.06) 60%, 
+      transparent 80%);
+    animation: aurora-flow-3 40s ease-in-out infinite alternate;
+  }
+
+  .static-dots {
+    @apply absolute inset-0;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.03) 3px, transparent 3px),
+      radial-gradient(circle at 75% 75%, rgba(244, 63, 94, 0.03) 2px, transparent 2px),
+      radial-gradient(circle at 50% 80%, rgba(16, 185, 129, 0.03) 2.5px, transparent 2.5px);
+    background-size: 80px 80px, 60px 60px, 100px 100px;
+  }
+
+  /* 保留极光动画 */
+
+  @keyframes subtle-aurora {
+    0% { 
+      transform: translateX(-100px) translateY(-50px);
+      opacity: 0.05;
+    }
+    50% { 
+      transform: translateX(0px) translateY(0px);
+      opacity: 0.15;
+    }
+    100% { 
+      transform: translateX(100px) translateY(50px);
+      opacity: 0.05;
+    }
+  }
+
+  @keyframes aurora-flow-1 {
+    0% { transform: translateX(-100%) translateY(-50%) rotate(10deg); }
+    100% { transform: translateX(100%) translateY(50%) rotate(-10deg); }
+  }
+
+  @keyframes aurora-flow-2 {
+    0% { transform: translateX(100%) translateY(-30%) rotate(-15deg); }
+    100% { transform: translateX(-100%) translateY(30%) rotate(15deg); }
+  }
+
+  @keyframes aurora-flow-3 {
+    0% { transform: translateX(-50%) translateY(100%) rotate(5deg); }
+    100% { transform: translateX(50%) translateY(-100%) rotate(-5deg); }
+  }
+
+  /* 响应式调整 */
+  @media (max-width: 768px) {
+    .flowing-dots-1 {
+      background-size: 45px 45px;
+    }
+    
+    .aurora-layer-subtle {
+      opacity: 0.05;
+    }
+  }
+
+  /* 深色模式适配 */
+  .dark .flowing-dots-1 {
+    background-image: 
+      radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.08) 4px, transparent 4px);
+  }
+
+  .dark .aurora-layer-subtle {
+    background: linear-gradient(45deg, 
+      transparent 40%, 
+      rgba(59, 130, 246, 0.15) 60%, 
+      transparent 80%);
+    opacity: 0.15;
+  }
+
+  .dark .aurora-layer-2 {
+    background: linear-gradient(-45deg, 
+      transparent 20%, 
+      rgba(139, 92, 246, 0.12) 50%, 
+      transparent 80%);
+  }
+
+  .dark .aurora-layer-3 {
+    background: linear-gradient(135deg, 
+      transparent 40%, 
+      rgba(16, 185, 129, 0.1) 60%, 
+      transparent 80%);
+  }
 }

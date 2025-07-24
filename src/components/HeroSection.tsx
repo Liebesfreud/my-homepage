@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Github, Linkedin, Mail, Download } from "lucide-react"
+import { Icons } from "@/lib/icons"
 
 interface HeroSectionProps {
   name?: string
@@ -22,7 +22,7 @@ export function HeroSection({
   socialLinks = {}
 }: HeroSectionProps) {
   return (
-    <section className="min-h-[90vh] flex items-center justify-center px-4 py-20">
+    <div className="min-h-screen flex items-center justify-center px-4 -mt-16">
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
         {/* Content */}
         <div className="text-center lg:text-left space-y-8">
@@ -44,11 +44,11 @@ export function HeroSection({
           {/* Action Buttons */}
           <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
             <Button className="fluent-button">
-              <Mail className="w-4 h-4 mr-2" />
+              <Icons.Mail className="w-4 h-4 mr-2" />
               联系我
             </Button>
             <Button variant="outline" className="acrylic-card">
-              <Download className="w-4 h-4 mr-2" />
+              <Icons.Download className="w-4 h-4 mr-2" />
               了解更多
             </Button>
           </div>
@@ -62,7 +62,7 @@ export function HeroSection({
                 rel="noopener noreferrer"
                 className="p-3 rounded-full acrylic-card reveal-effect hover:scale-110 transition-transform"
               >
-                <Github className="w-5 h-5" />
+                <Icons.Github className="w-5 h-5" />
               </a>
             )}
             {socialLinks.linkedin && (
@@ -72,7 +72,7 @@ export function HeroSection({
                 rel="noopener noreferrer"
                 className="p-3 rounded-full acrylic-card reveal-effect hover:scale-110 transition-transform"
               >
-                <Linkedin className="w-5 h-5" />
+                <Icons.Linkedin className="w-5 h-5" />
               </a>
             )}
             {socialLinks.email && (
@@ -80,7 +80,7 @@ export function HeroSection({
                 href={`mailto:${socialLinks.email}`}
                 className="p-3 rounded-full acrylic-card reveal-effect hover:scale-110 transition-transform"
               >
-                <Mail className="w-5 h-5" />
+                <Icons.Mail className="w-5 h-5" />
               </a>
             )}
           </div>
@@ -100,6 +100,6 @@ export function HeroSection({
           </div>
         </div>
       </div>
-    </section>
+    </div>
   )
 }
