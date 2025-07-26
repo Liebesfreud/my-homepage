@@ -1,6 +1,7 @@
-# 🌟 个人主页项目
+<img width="3642" height="3368" alt="image" src="https://github.com/user-attachments/assets/a9a77f49-45b0-4fe7-b800-e955243ef6e8" /># 🌟 个人主页项目
 
 一个基于现代 Web 技术栈构建的个人主页项目，采用 Microsoft Fluent Design 设计语言，提供优雅的用户体验和丰富的视觉效果。
+![Uploading image.png…]()
 
 ## ✨ 特性
 
