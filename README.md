@@ -2,7 +2,7 @@
 
 一个基于现代 Web 技术栈构建的个人主页项目，采用 Microsoft Fluent Design 设计语言，提供优雅的用户体验和丰富的视觉效果。
 
-![Uploading image.png…]()
+![屏幕截图_26-7-2025_16274_localhost.jpeg](https://cloudflare-imgbed-958.pages.dev/file/1753518547835_屏幕截图_26-7-2025_16274_localhost.jpeg)
 
 
 ## ✨ 特性
